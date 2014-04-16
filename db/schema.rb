@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416042753) do
+ActiveRecord::Schema.define(version: 20140416050402) do
+
+  create_table "assets", force: true do |t|
+    t.string   "auid"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assets", ["user_id"], name: "index_assets_on_user_id"
 
   create_table "channels", force: true do |t|
     t.string   "cuid"

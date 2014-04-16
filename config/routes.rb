@@ -1,4 +1,6 @@
 RailsDevisePundit::Application.routes.draw do
+  resources :assets
+
   resources :videos
 
   resources :channels
