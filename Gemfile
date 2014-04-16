@@ -13,6 +13,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'pundit'
 gem 'rails_12factor', group: :production
+gem 'faker', '1.1.2'
 
 group :production do
 	gem 'pg'

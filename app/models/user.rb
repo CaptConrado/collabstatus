@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  enum role: [:user, :vip, :admin, :prospect]
+  enum role:           [:user, :vip, :admin, :prospect]
+  enum payment_method: [:paypal,:wire,:check]
   after_initialize :set_default_role, :if => :new_record?
 
   has_many :channels

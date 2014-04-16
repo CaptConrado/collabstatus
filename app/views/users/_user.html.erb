@@ -8,5 +8,11 @@
   <% end %>
 </td>
 <td>
+  <%= form_for(user) do |f| %>
+    <%= f.select(:payment_method, User.payment_methods.keys.map {|payment_method| [payment_method,payment_method]}) %>
+    <%= f.submit 'Change Payment Method', :class => 'button-xs' %>
+  <% end %>
+</td>
+<td>
   <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs') unless user == current_user %>
 </td>
