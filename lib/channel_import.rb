@@ -4,13 +4,12 @@ class ChannelImporter
 		file = "db/channels.csv"
 
   	CSV.foreach(file, :headers => true, :encoding => 'windows-1251:utf-8') do |row|
-      Producer.create(
-        first_name:            row[1]
-        # collab:          row[3]
+      cleaner = row[0].gsub(/^UC/,"")
+      Channel.create(
+        cuid:             cleaner
       )
     end
   end
 end
-
 
 

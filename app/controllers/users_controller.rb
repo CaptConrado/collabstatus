@@ -7,6 +7,9 @@ class UsersController < ApplicationController
     authorize @users
   end
 
+  # def edit
+  # end
+  
   def show
     @user = User.find(params[:id])
     unless current_user.admin?
