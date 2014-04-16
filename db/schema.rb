@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416040718) do
+ActiveRecord::Schema.define(version: 20140416042753) do
 
   create_table "channels", force: true do |t|
     t.string   "cuid"
@@ -42,5 +42,14 @@ ActiveRecord::Schema.define(version: 20140416040718) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "videos", force: true do |t|
+    t.string   "vuid"
+    t.integer  "channel_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "videos", ["channel_id"], name: "index_videos_on_channel_id"
 
 end

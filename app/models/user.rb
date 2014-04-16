@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   after_initialize :set_default_role, :if => :new_record?
 
   has_many :channels
+  has_many :videos, through: :channels
 
   def set_default_role
     self.role ||= :user

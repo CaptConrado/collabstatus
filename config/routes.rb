@@ -1,4 +1,6 @@
 RailsDevisePundit::Application.routes.draw do
+  resources :videos
+
   resources :channels
 
   root :to => "home#index"
